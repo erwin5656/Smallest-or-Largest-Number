@@ -4,61 +4,62 @@ const largest = document.querySelector(".largest")
 const smallest = document.querySelector(".smallest")
 const input = document.querySelector("form")
 const getRandoNumber = (maxNNumber = 100) => Math.floor(Math.random() * maxNNumber)
-const numbers = []
+const numberArray = []
+let correctAnswer
 const smallestNumber = (number) => {
     return Math.min(...number)
 }
 const largestNumber = (number) => {
     return Math.max(...number)
 }
-const inputRandomNumbers = (number) => numbers.push(number)
-for(let i=0; i<9; i++){
+const inputRandomNumbers = (number) => numberArray.push(number)
+for (let i = 0; i < 9; i++) {
     inputRandomNumbers(getRandoNumber())
 }
-
-const boxNOne=()=> {
-    const BN = document.querySelector(".data1")
-    BN.textContent = numbers[0]
+correctAnswer = largestNumber(numberArray)
+const boxNOne = () => {
+    const BN = document.querySelector("#data1")
+    BN.textContent = numberArray[0]
 }
 boxNOne()
-const boxNTwo=()=> {
-    const BN = document.querySelector(".data2")
-    BN.textContent = numbers[1]
+const boxNTwo = () => {
+    const BN = document.querySelector("#data2")
+    BN.textContent = numberArray[1]
 }
 boxNTwo()
-const boxNThree=()=> {
-    const BN = document.querySelector(".data3")
-    BN.textContent = numbers[2]
+const boxNThree = () => {
+    const BN = document.querySelector("#data3")
+    BN.textContent = numberArray[2]
 }
 boxNThree()
-const boxNFour=()=> {
-    const BN = document.querySelector(".data4")
-    BN.textContent = numbers[3]
+const boxNFour = () => {
+    const BN = document.querySelector("#data4")
+    BN.textContent = numberArray[3]
 }
 boxNFour()
-const boxNFive=()=> {
-    const BN = document.querySelector(".data5")
-    BN.textContent = numbers[4]
+const boxNFive = () => {
+    const BN = document.querySelector("#data5")
+    BN.textContent = numberArray[4]
 }
 boxNFive()
-const boxNSix=()=> {
-    const BN = document.querySelector(".data6")
-    BN.textContent = numbers[5]
+const boxNSix = () => {
+    const BN = document.querySelector("#data6")
+    BN.textContent = numberArray[5]
 }
 boxNSix()
-const boxNSeven=()=> {
-    const BN = document.querySelector(".data7")
-    BN.textContent = numbers[6]
+const boxNSeven = () => {
+    const BN = document.querySelector("#data7")
+    BN.textContent = numberArray[6]
 }
 boxNSeven()
-const boxNEight=()=> {
-    const BN = document.querySelector(".data8")
-    BN.textContent = numbers[7]
+const boxNEight = () => {
+    const BN = document.querySelector("#data8")
+    BN.textContent = numberArray[7]
 }
 boxNEight()
-const boxNNine=()=> {
-    const BN = document.querySelector(".data9")
-    BN.textContent = numbers[8]
+const boxNNine = () => {
+    const BN = document.querySelector("#data9")
+    BN.textContent = numberArray[8]
 }
 boxNNine()
 
@@ -69,11 +70,17 @@ function resetShortcut() {
 }
 
 document
-.querySelector("td")
-.addEventListener("onclick", event => {
-        event.preventDefault()
-        console.log(event)
-    
+    .querySelector("table")
+    .addEventListener("click", event => {
+        const form = event.target
+        const playeanswer = form
+        console.log(playeanswer)
+        if (playeanswer === true) {
+            console.log("hi")
+        } else {
+            event.target.style.background = "red"
         }
-        )
+    }
+    )
 document.querySelector('#reset').addEventListener('click', resetShortcut);
+console.log(correctAnswer)
